@@ -27,6 +27,15 @@ Contribute as if the target repo were a real external project: read first, chang
 - Read the issue body, linked files, and nearby docs before deciding on implementation.
 - If the issue is ambiguous, choose the most conservative reasonable interpretation and state that in the PR.
 - If the repo has contribution conventions, follow them.
+- Check whether the project follows or expects **community standards** such as:
+  - `README`
+  - `CODE_OF_CONDUCT`
+  - `CONTRIBUTING`
+  - `LICENSE`
+  - `SECURITY`
+  - issue templates
+  - pull request template
+- If those files or templates exist, align with them before contributing.
 - If tests or lint exist and are cheap to run, run them.
 - If no automated checks exist, do a lightweight manual validation.
 - Avoid force-push unless fixing your own branch and there is a clear reason.
@@ -35,15 +44,19 @@ Contribute as if the target repo were a real external project: read first, chang
 
 Use a readable branch name, for example:
 
-- `byteclaw/issue-12-fix-readme-links`
-- `byteclaw/issue-7-add-market-analysis`
-- `byteclaw/issue-1-reformat-analysis`
+- `issue-12-fix-readme-links`
+- `issue-7-add-market-analysis`
+- `issue-1-reformat-analysis`
+- `docs/issue-3-improve-contributing-guide`
+- `feat/issue-9-add-export-command`
 
 Pattern:
 
-- actor prefix when useful
+- optional type prefix when useful (`docs/`, `fix/`, `feat/`, etc.)
 - issue number
 - short hyphenated task summary
+
+Do not hardcode your own bot or username into the naming convention unless the target project explicitly wants that.
 
 ## Commit guidance
 
@@ -87,7 +100,7 @@ gh repo clone owner/repo ./repo
 cd ./repo
 gh repo fork owner/repo --clone=false --remote=true
 
-git checkout -b byteclaw/issue-12-short-summary origin/main
+git checkout -b issue-12-short-summary origin/main
 ```
 
 If the fork remote is not set as expected, inspect remotes and fix them deliberately.
@@ -110,12 +123,12 @@ Run project checks if they exist.
 ```bash
 git add <files>
 git commit -m "docs: improve X for issue #12"
-git push -u fork byteclaw/issue-12-short-summary
+git push -u fork issue-12-short-summary
 
 gh pr create \
   --repo owner/repo \
   --base main \
-  --head YOUR_FORK_OWNER:byteclaw/issue-12-short-summary \
+  --head YOUR_FORK_OWNER:issue-12-short-summary \
   --title "Docs: improve X" \
   --body-file references/pr-body-template.md
 ```
@@ -132,6 +145,7 @@ Adjust base branch if the repo does not use `main`.
 - Commit message is clean
 - PR body explains context and changes
 - Issue reference included
+- Community standards checked when present (`README`, `CODE_OF_CONDUCT`, `CONTRIBUTING`, `LICENSE`, `SECURITY`, issue templates, PR template)
 
 ## Read this reference when writing the PR
 
