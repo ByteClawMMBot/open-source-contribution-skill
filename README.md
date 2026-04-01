@@ -1,17 +1,33 @@
 # open-source-contribution-skill
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Community standards](https://img.shields.io/badge/community-standards-brightgreen)](CONTRIBUTING.md)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![OpenClaw Skill](https://img.shields.io/badge/OpenClaw-skill-orange)](open-source-contribution/)
+
 An OpenClaw skill for contributing to GitHub projects like a careful open-source contributor.
 
-It helps an agent handle the full contribution flow with good hygiene:
+It helps an agent handle the full contribution flow with better hygiene:
 
 - read the issue before touching code
-- inspect the repo structure and contribution norms
+- inspect repo structure and contribution norms
 - keep scope tight
 - fork when appropriate
 - create a dedicated branch
 - commit cleanly
 - open a pull request with issue references and a clear summary
 - align with project community standards when they exist
+
+## Table of contents
+
+- [Why this exists](#why-this-exists)
+- [What the skill covers](#what-the-skill-covers)
+- [Quick start](#quick-start)
+- [Repository contents](#repository-contents)
+- [Example use cases](#example-use-cases)
+- [Community standards](#community-standards)
+- [Author](#author)
+- [License](#license)
 
 ## Why this exists
 
@@ -39,6 +55,16 @@ The skill guides an agent to:
 5. keep the diff focused
 6. write a clean commit and PR body
 
+## Quick start
+
+Use the packaged artifact if you want the fastest install/share path:
+
+- `open-source-contribution.skill`
+
+Use the source directory if you want to inspect or edit the skill:
+
+- `open-source-contribution/`
+
 ## Repository contents
 
 - `open-source-contribution/` — editable skill source
@@ -50,16 +76,6 @@ The skill guides an agent to:
 - contribute to a repo without pushing directly to upstream
 - open a PR that references an issue cleanly
 - make documentation or code changes while respecting project norms
-
-## Installation / usage
-
-Use the packaged artifact if you want to install/share the skill quickly:
-
-- `open-source-contribution.skill`
-
-Use the source directory if you want to inspect or edit the skill:
-
-- `open-source-contribution/`
 
 ## Community standards
 
