@@ -9,23 +9,60 @@ Contribute as if the target repo were a real external project: read first, chang
 
 ## Quick workflow
 
-1. Read the issue, relevant files, and current repo structure before editing anything.
-2. Infer the narrowest reasonable interpretation of the issue.
-3. Fork the repo if you do not already have write access or if the task explicitly asks for a contributor-style flow.
-4. Create a dedicated branch from the target default branch.
-5. Make only the changes needed for the issue.
-6. Validate the result locally when possible.
-7. Commit with a clean message.
-8. Push the branch to the fork.
-9. Open a PR against the upstream repo and reference the issue.
-10. Summarize what changed, what you assumed, and any limitations.
+1. Triage the issue before contributing.
+2. Read the issue, comments, relevant files, and current repo structure before editing anything.
+3. Decide go / no-go.
+4. Infer the narrowest reasonable interpretation of the issue.
+5. Fork the repo if you do not already have write access or if the task explicitly asks for a contributor-style flow.
+6. Create a dedicated branch from the target default branch.
+7. Make only the changes needed for the issue.
+8. Validate the result locally when possible.
+9. Commit with a clean message.
+10. Push the branch to the fork.
+11. Open a PR against the upstream repo and reference the issue.
+12. Summarize what changed, what you assumed, and any limitations.
+
+## Issue triage before contributing
+
+Check these points before touching code:
+
+- Is the issue still open and still relevant?
+- Is someone already assigned?
+- Is there already an open PR for the same issue or topic?
+- Do issue comments show maintainer direction, constraints, or a preferred approach?
+- Does the issue look blocked, postponed, or waiting on a refactor?
+- Is the scope small enough for a focused contribution?
+
+Do not assume an open issue is automatically ready for contribution.
+
+## Go / no-go
+
+### Go when
+
+- the issue is clear enough to act on
+- there is no active PR duplicating the work
+- maintainer direction is either clear or not needed
+- the scope is narrow and reviewable
+- the change can be validated reasonably
+
+### No-go when
+
+- an open PR already covers the same work
+- the issue is assigned and actively moving
+- maintainer comments say to wait
+- the change depends on a large refactor or unclear product/design decisions
+- the issue is too ambiguous for a clean first pass
+
+If in doubt, prefer no-go or comment-first over opening a speculative PR.
 
 ## Contribution rules
 
 - Prefer a **fork + branch + PR** flow unless the user explicitly asks for direct pushes.
 - Keep the scope tight. Do not slip in unrelated cleanup.
-- Read the issue body, linked files, and nearby docs before deciding on implementation.
+- Read the issue body, linked files, nearby docs, and issue comments before deciding on implementation.
+- Search for open PRs or recent closed PRs that may already cover the same topic.
 - If the issue is ambiguous, choose the most conservative reasonable interpretation and state that in the PR.
+- Check for maintainer alignment before investing in implementation, especially for feature requests or UX changes.
 - If the repo has contribution conventions, follow them.
 - Check whether the project follows or expects **community standards** such as:
   - `README`
@@ -89,7 +126,8 @@ Use `gh` when available.
 ### Inspect issue and repo
 
 ```bash
-gh issue view 12 --repo owner/repo
+gh issue view 12 --repo owner/repo --comments
+gh pr list --repo owner/repo --state open --search "12 in:title,body"
 gh repo view owner/repo
 gh repo clone owner/repo ./repo
 ```
@@ -138,6 +176,8 @@ Adjust base branch if the repo does not use `main`.
 ## Review checklist before opening the PR
 
 - Issue fully read
+- Issue comments read
+- Existing PRs on the same topic checked
 - Scope still narrow
 - No unrelated file churn
 - Diff is understandable
@@ -145,6 +185,7 @@ Adjust base branch if the repo does not use `main`.
 - Commit message is clean
 - PR body explains context and changes
 - Issue reference included
+- Maintainer alignment checked when relevant
 - Community standards checked when present (`README`, `CODE_OF_CONDUCT`, `CONTRIBUTING`, `LICENSE`, `SECURITY`, issue templates, PR template)
 
 ## Read this reference when writing the PR
